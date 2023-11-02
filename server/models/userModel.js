@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { itemSchema } from "./itemModel";
+import { itemSchema } from "./itemModel.js";
 
-const userSchema = new mongoose.Schema({
+export const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: [true, "Username is required"],
