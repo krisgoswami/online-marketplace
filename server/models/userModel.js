@@ -14,7 +14,8 @@ export const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
     },
-    listed_items: [itemSchema]
+    purchasedItems: [itemSchema],
+    listed_items: [itemSchema],
 });
 
 export const User = mongoose.model('User', userSchema);
