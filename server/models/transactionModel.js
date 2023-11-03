@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
-import { userSchema } from "./userModel.js";
 import { itemSchema } from "./itemModel.js";
 
 export const transactionSchema = new mongoose.Schema({
-    user: [userSchema],
+    user: {
+        type: mongoose.Schema.Types.String,
+        ref: 'User',
+        required: true,
+    },
     item: [itemSchema],
 }, { timestamps: true });
 

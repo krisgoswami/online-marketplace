@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { User } from "../models/userModel.js";
 import { Item } from '../models/itemModel.js';
+import { Transaction } from '../models/transactionModel.js';
 
 // *********user registration*********
 
@@ -199,8 +200,14 @@ export const purchase = async (req, res) => {
             if (user) {
                 user.purchasedItems.push(item);
                 await user.save();
+
+                const transaction = new Transaction({
+                    user: user.username,
+                    item,
+                })
+                await transaction.save();
                 res.status(200).send({
-                    message: "Course purchased successfully",
+                    message: "Item purchased successfully",
                     success: true,
                     user,
                 });
