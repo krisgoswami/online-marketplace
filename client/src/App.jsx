@@ -4,6 +4,10 @@ import { Provider } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { store } from './redux/store';
 import Auth from './pages/Auth';
+import Navbar from './components/Navbar';
+import ShowNavbar from './components/ShowNavbar';
+import Home from './pages/Home';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -12,16 +16,19 @@ function App() {
       <Provider store={store}>
         <Toaster />
         <Router>
-          {/* <Navbar /> */}
+          <ShowNavbar>
+            <Navbar />
+          </ShowNavbar>
+
           <Routes>
-            {/* <Route path="/" exact element={<Landing />} /> */}
+            <Route path="/" exact element={<Home />} />
             <Route path="/login" element={<Auth />} />
             {/* <Route path="/ground/:id" element={<GroundDetails />} /> */}
             {/* <Route path="/bookings" element={<Bookings />} /> */}
             {/* <Route path="/grounds" element={<Grounds />} /> */}
           </Routes>
         </Router>
-        {/* <Footer /> */}
+        <Footer />
       </Provider>
     </>
   )
