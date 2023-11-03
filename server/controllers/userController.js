@@ -127,45 +127,6 @@ export const createItem = async (req, res) => {
     }
 }
 
-// *********get all listed items*********
-
-export const getItems = async (req, res) => {
-    try {
-        const items = await Item.find({});
-        res.status(200).send({
-            success: true,
-            items,
-        });
-    } catch (error) {
-        console.log(error);
-        return res.status(400).send({
-            message: 'No items listed',
-            success: false,
-            error,
-        });
-    }
-}
-
-// *********get course by id*********
-
-export const getItem = async (req, res) => {
-    try {
-        const itemId = req.params.id;
-        const item = await Item.findById(itemId);
-        res.status(200).send({
-            success: true,
-            item,
-        });
-    } catch (error) {
-        console.log(error);
-        return res.status(400).send({
-            message: 'Item not found',
-            success: false,
-            error,
-        });
-    }
-}
-
 // *********update item*********
 
 export const updateItem = async (req, res) => {
@@ -197,6 +158,7 @@ export const updateItem = async (req, res) => {
 export const deleteItem = async (req, res) => {
     try {
         const itemId = req.params.id;
+        const user = await User.findOne({ email: req.user.email });
         const item = await Item.findByIdAndDelete(itemId);
         if (!item) {
             return res.status(404).send({
@@ -204,6 +166,11 @@ export const deleteItem = async (req, res) => {
                 success: false,
             });
         }
+
+        //removing the item from the users listed items array and saving it
+        user.listed_items.pull(item);
+        await user.save();
+
         res.status(200).send({
             message: "Item deleted",
             success: true,
