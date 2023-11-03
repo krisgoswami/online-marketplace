@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
-import { userSchema } from "./userModel.js";
 
 export const itemSchema = new mongoose.Schema({
+    brand: {
+        type: String,
+        required: [true, "Brand is required"],
+    },
     item_name: {
         type: String,
         required: [true, "Name is required"],
