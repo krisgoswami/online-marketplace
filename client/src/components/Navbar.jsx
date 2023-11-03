@@ -67,11 +67,14 @@ const Navbar = () => {
                                     </div>
 
                                     <div
-                                        className="invisible absolute z-50 flex w-full flex-col rounded-md bg-teal-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                                        <a className="my-2 block border-b border-black py-1 font-semibold text-teal-600 hover:text-teal-950 md:mx-2" onClick={() => { navigate('/create-item') }}>
+                                        className="invisible absolute z-50 flex w-full flex-col rounded-md bg-teal-800  text-gray-800 shadow-xl group-hover:visible">
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/create-item') }}>
                                             Create an item to sell
                                         </a>
-                                        <a className="my-2 block border-b border-black py-1 font-semibold text-teal-600 hover:text-teal-950 md:mx-2" onClick={handleLogout}>
+                                        <a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/listed-items') }}>
+                                            View listed items
+                                        </a>
+                                        <a className="block py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={handleLogout}>
                                             Logout
                                         </a>
                                     </div>

@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import CreateItem from './pages/CreateItem';
 import Items from './pages/Items';
+import MyItems from './pages/MyItems';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/login" element={<Auth />} />
             <Route path="/create-item" element={<CreateItem />} />
             <Route path="/items" element={<Items />} />
+            <Route path="/listed-items" element={<MyItems />} />
             {/* <Route path="/bookings" element={<Bookings />} /> */}
             {/* <Route path="/grounds" element={<Grounds />} /> */}
           </Routes>
