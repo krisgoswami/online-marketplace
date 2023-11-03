@@ -7,6 +7,7 @@ export const getItems = async (req, res) => {
         const items = await Item.find({});
         res.status(200).send({
             success: true,
+            itemsCount: items.length,
             items,
         });
     } catch (error) {
