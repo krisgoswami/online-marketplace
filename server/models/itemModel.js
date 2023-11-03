@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { userSchema } from "./userModel.js";
 
 export const itemSchema = new mongoose.Schema({
     item_name: {
@@ -27,6 +28,11 @@ export const itemSchema = new mongoose.Schema({
     published: {
         type: Boolean,
         required: [true, "published is required"],
+    },
+    createdBy: {
+        type: mongoose.Schema.Types.String,
+        ref: 'User',
+        required: true,
     },
 });
 

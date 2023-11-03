@@ -5,10 +5,10 @@ import { Item } from '../models/itemModel.js';
 // *********user registration*********
 
 export const createUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { username, email, password } = req.body;
     try {
         //validations
-        if (!email || !password) {
+        if (!username || !email || !password) {
             return res.status(400).send({
                 message: "please fill all fields",
                 success: false,
@@ -26,6 +26,7 @@ export const createUser = async (req, res) => {
 
         //save user to database
         const user = new User({
+            username: username,
             email: email,
             password: password,
         });
@@ -92,17 +93,24 @@ export const userLogin = async (req, res) => {
 
 export const createItem = async (req, res) => {
     try {
-        const existingUser = await User.findOne({ email: req.user.email });
-        if (!existingUser) {
+        const user = await User.findOne({ email: req.user.email });
+        if (!user) {
             return res.status(404).send({
                 message: 'User not found',
                 success: false,
                 error,
             });
         }
-        const item = new Item(req.body);
-        existingUser.listed_items.push(item); //saving item to the user who created it 
+        const item = new Item({
+            ...req.body,
+            createdBy: user.username,
+        });
         await item.save();
+
+        //saving item to the user who created it
+        user.listed_items.push(item);
+        await user.save();
+
         res.status(200).send({
             message: "Item added successfully",
             success: true,
