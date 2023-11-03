@@ -128,6 +128,33 @@ export const createItem = async (req, res) => {
     }
 }
 
+// *********display listed items*********
+
+export const listedItems = async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.user.email }).populate('listed_items');
+
+        if (user) {
+            res.status(200).send({
+                listedItems: user.listed_items || [],
+                success: true,
+            });
+        } else {
+            return res.status(400).send({
+                message: "User not found",
+                success: false,
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No items found',
+            success: false,
+            error,
+        });
+    }
+}
+
 // *********update item*********
 
 export const updateItem = async (req, res) => {
