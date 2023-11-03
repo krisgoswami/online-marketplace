@@ -92,7 +92,16 @@ export const userLogin = async (req, res) => {
 
 export const createItem = async (req, res) => {
     try {
+        const existingUser = await User.findOne({ email: req.user.email });
+        if (!existingUser) {
+            return res.status(404).send({
+                message: 'User not found',
+                success: false,
+                error,
+            });
+        }
         const item = new Item(req.body);
+        existingUser.listed_items.push(item); //saving item to the user who created it 
         await item.save();
         res.status(200).send({
             message: "Item added successfully",
@@ -195,6 +204,70 @@ export const deleteItem = async (req, res) => {
         console.log(error);
         return res.status(500).send({
             message: 'Error deleting item',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********purchase item*********
+
+export const purchase = async (req, res) => {
+    try {
+        const itemId = req.params.id;
+        const item = await Item.findById(itemId);
+        if (item) {
+            const user = await User.findOne({ email: req.user.email });
+            // console.log(user);
+            // console.log(course);
+
+            if (user) {
+                user.purchasedItems.push(item);
+                await user.save();
+                res.status(200).send({
+                    message: "Course purchased successfully",
+                    success: true,
+                    user,
+                });
+            } else {
+                return res.status(403).send({
+                    message: "User not found",
+                    success: false,
+                });
+            }
+
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'Course not found',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********display purchased items*********
+
+export const purchasedItems = async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.user.email }).populate('purchasedItems');
+
+        if (user) {
+            res.status(200).send({
+                purchasedItems: user.purchasedItems || [],
+                success: true,
+            });
+        } else {
+            return res.status(400).send({
+                message: "User not found",
+                success: false,
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No items',
             success: false,
             error,
         });
