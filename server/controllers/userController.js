@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { User } from "../models/userModel.js";
+import { Item } from '../models/itemModel.js';
 
 // *********user registration*********
 
@@ -81,6 +82,119 @@ export const userLogin = async (req, res) => {
         console.log(error);
         return res.status(500).send({
             message: 'Error logging in',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********create item to list for sale*********
+
+export const createItem = async (req, res) => {
+    try {
+        const item = new Item(req.body);
+        await item.save();
+        res.status(200).send({
+            message: "Item added successfully",
+            success: true,
+            item,
+            itemId: item.id,
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error creating item',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********get all listed items*********
+
+export const getItems = async (req, res) => {
+    try {
+        const items = await Item.find({});
+        res.status(200).send({
+            success: true,
+            items,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No items listed',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********get course by id*********
+
+export const getItem = async (req, res) => {
+    try {
+        const itemId = req.params.id;
+        const item = await Item.findById(itemId);
+        res.status(200).send({
+            success: true,
+            item,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'Item not found',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********update item*********
+
+export const updateItem = async (req, res) => {
+    try {
+        const item = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!item) {
+            return res.status(404).send({
+                message: "Item not found",
+                success: false,
+            });
+        }
+        res.status(200).send({
+            message: "Item updated succefully",
+            success: true,
+            item,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error updating item',
+            success: false,
+            error,
+        });
+    }
+}
+
+// *********delete item*********
+
+export const deleteItem = async (req, res) => {
+    try {
+        const itemId = req.params.id;
+        const item = await Item.findByIdAndDelete(itemId);
+        if (!item) {
+            return res.status(404).send({
+                message: "Item not found",
+                success: false,
+            });
+        }
+        res.status(200).send({
+            message: "Item deleted",
+            success: true,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: 'Error deleting item',
             success: false,
             error,
         });
