@@ -5,8 +5,8 @@ const Footer = () => {
         <div>
             <div className='flex flex-col lg:flex-row bg-teal-500 lg:h-60'>
                 <div className='lg:w-1/2 ml-5 lg:ml-12 mt-5 lg:mt-10'>
-                    <p className='text-white text-2xl font-bold mb-3'>Book-A-Ground.com</p>
-                    <p className='text-white mb-5 w-96 lg:w-1/2 text-justify'>Book-A-Ground.com is an app where you can book grounds to play football and cricket with your friends and loved ones. Book a ground near you today! </p>
+                    <p className='text-white text-2xl font-bold mb-3'>Settyl Market</p>
+                    <p className='text-white mb-5 w-96 lg:w-1/2 text-justify'>Settyl Market is an online marketplace where you can list items for sale, buy items from other people, and engage in real-time auctions for unique items. </p>
                 </div>
                 <div className='lg:w-1/4 mx-5 lg:ml-48 mt-5 lg:mt-10'>
                     <p className='text-white text-lg font-bold mb-3'>Contact</p>
@@ -21,7 +21,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='bg-teal-700 py-4 flex flex-col lg:flex-row items-center justify-between border-t border-gray-400'>
+            <div className='bg-teal-700 py-4 flex flex-col lg:flex-row items-center justify-between'>
                 <p className='text-white font-semibold lg:ml-10'> &#169; Krishanu Goswami</p>
                 <div className='flex gap-2 lg:mr-10 lg:gap-10'>
                     <a href='#' className='text-white font-medium'>Privacy Policy</a>

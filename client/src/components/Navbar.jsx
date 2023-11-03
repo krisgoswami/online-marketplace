@@ -34,7 +34,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="bg-teal-500 p-4">
+        <nav className="bg-teal-700 p-4">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center">
                     <div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Settyl Market</div>
@@ -68,8 +68,8 @@ const Navbar = () => {
 
                                     <div
                                         className="invisible absolute z-50 flex w-full flex-col rounded-md bg-teal-100 py-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                                        <a className="my-2 block border-b border-black py-1 font-semibold text-teal-600 hover:text-teal-950 md:mx-2" onClick={() => { navigate('/bookings') }}>
-                                            Bookings
+                                        <a className="my-2 block border-b border-black py-1 font-semibold text-teal-600 hover:text-teal-950 md:mx-2" onClick={() => { navigate('/create-item') }}>
+                                            Create an item to sell
                                         </a>
                                         <a className="my-2 block border-b border-black py-1 font-semibold text-teal-600 hover:text-teal-950 md:mx-2" onClick={handleLogout}>
                                             Logout
