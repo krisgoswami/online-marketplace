@@ -35,7 +35,7 @@ const MyItems = () => {
     }, []);
 
     return (
-        <div className='flex flex-col h-screen p-4'>
+        <div className='flex flex-col h-screen overflow-auto p-4'>
             <p className='mx-2 md:ml-10 mt-5 mb-3 font-bold text-xl text-center md:text-left'>Items listed by you</p>
             {myListedItems?.map((item) =>
                 <div key={item?._id} className="mx-10 mt-4">

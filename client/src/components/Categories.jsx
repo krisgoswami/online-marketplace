@@ -23,10 +23,10 @@ const Categories = () => {
 
 
     return (
-        <div className="w-full p-5 pb-10 bg-gray-200">
+        <div className="w-full p-10 bg-gray-200 overflow-auto">
             <h2 className="text-xl font-bold mb-4">Categories</h2>
-            <div className='flex justify-center'>
-                {items?.map((item) =>
+            <div className='flex justify-between overflow-auto'>
+                {items?.slice(0, 4).map((item) =>
                     <div key={item?._id} className="mx-10 mt-4">
                         <SectionCard
                             id={item?._id}

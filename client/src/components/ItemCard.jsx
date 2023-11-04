@@ -19,7 +19,7 @@ const ItemCard = ({ id, item_name, description, brand, price, image }) => {
                     onClick={() => {
                         navigate(`/item-details/${id}`);
                     }}
-                    className="bg-teal-500 hover:bg-teal-700 text-white px-4 py-2 rounded-full">
+                    className="bg-teal-500 hover:bg-teal-700 text-white px-4 py-2 rounded-md">
                     View
                 </button>
             </div>
@@ -52,8 +52,8 @@ export const HomeCard = ({ id, item_name, brand, price, image }) => {
 
 export const SectionCard = ({ id, category, image }) => {
     return (
-        <div className="bg-white w-80 h-[450px] p-4 shadow-md rounded-sm flex flex-col items-center">
-            <img src={image} alt={''} className="w-full h-[300px] object-cover mb-4 rounded-md" />
+        <div className="bg-white w-80 h-[450px] p-4 shadow-md rounded-sm flex flex-col items-center align-middle">
+            <img src={image} alt={''} className="w-full h-84 object-cover mb-4 rounded-md" />
             <h3 className="text-xl text-black font-bold mb-2">{category}</h3>
             <p className="text-white mb-2 font-semibold">{''}</p>
             <button

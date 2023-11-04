@@ -71,7 +71,7 @@ const Navbar = () => {
 										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/listed-items') }}>
 											View listed items
 										</a>
-										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/listed-items') }}>
+										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/purchases') }}>
 											Your purchases
 										</a>
 										<a className="block py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={handleLogout}>
