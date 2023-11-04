@@ -115,11 +115,11 @@ const ItemDetails = () => {
                         navigate(`/update-item/${id}`);
                     }}
                         className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
-                        Edit item
+                        Edit ✏️
                     </button>
                         <button onClick={handleDelete}
                             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                            Delete item
+                            Delete 🗑️
                         </button></div> :
                     <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
                         Buy now
