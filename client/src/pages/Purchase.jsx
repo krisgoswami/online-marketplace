@@ -12,7 +12,7 @@ const Purchase = () => {
     const email = localStorage.getItem('email');
     const navigate = useNavigate();
 
-    const [inputs, setinputs] = useState({
+    const [inputs, setInputs] = useState({
         cardNumber: '',
         expiryMonth: '',
         expiryYear: '',
@@ -22,18 +22,17 @@ const Purchase = () => {
     const [errors, setErrors] = useState({});
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setinputs({
-            ...inputs,
-            [name]: value,
-        });
-        setErrors({
-            ...errors,
-            [name]: '',
-        });
+        setInputs(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }));
+        setErrors(prevState => ({
+            ...prevState,
+            [e.target.name]: '',
+        }));
     };
 
-    const handlePurchase = async () => {
+    const handlePurchase = async (e) => {
         e.preventDefault();
         if (!inputs.cardNumber || !inputs.expiryMonth || !inputs.expiryYear || !inputs.cvv) {
             toast.error("Fields cannot be empty");
@@ -69,9 +68,8 @@ const Purchase = () => {
         }
 
         try {
-            const { data } = await axios.post(`${BASE_URL}/api/v1/user/purchase/${id}`, {
+            const { data } = await axios.post(`${BASE_URL}/api/v1/user/purchase/${id}`, {}, {
                 headers: {
-                    'email': email,
                     'Authorization': `Bearer ${token}`,
                 }
             });

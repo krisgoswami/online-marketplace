@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/helper';
+import { HomeCard } from '../components/ItemCard';
 
 const Purchases = () => {
 
@@ -28,7 +29,25 @@ const Purchases = () => {
         getPurchases();
     }, [])
     return (
-        <div>Purchases</div>
+        <div className="w-full h-screen p-5 pb-10">
+            <h2 className="text-xl font-bold mb-4">Your purchases</h2>
+            <div className='flex justify-start'>
+                {purchasedItems?.map((item) =>
+                    <div key={item?._id} className="mx-10 mt-4">
+                        <HomeCard
+                            id={item?._id}
+                            item_name={item?.item_name}
+                            brand={item?.brand}
+                            price={item?.price}
+                            image={item?.image}
+                        />
+                    </div>
+                )}
+                {purchasedItems.length === 0 &&
+                    <p className="text-xl font-medium mx-10 mb-4">You have not made any purchases yet</p>
+                }
+            </div>
+        </div>
     )
 }
 
