@@ -17,7 +17,7 @@ const ItemCard = ({ id, item_name, description, brand, price, image }) => {
                 <p className="text-black font-bold mb-4">{`₹${price}`}</p>
                 <button
                     onClick={() => {
-                        navigate(`/ground/${id}`);
+                        navigate(`/item-details/${id}`);
                     }}
                     className="bg-teal-500 hover:bg-teal-700 text-white px-4 py-2 rounded-full">
                     View

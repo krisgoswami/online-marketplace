@@ -43,7 +43,7 @@ const Navbar = () => {
                     <div className="lg:flex items-center justify-between text-lg gap-4">
                         {isLogin && <>
                             <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
-                            <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/grounds') }}>Grounds</p>
+                            <p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/items') }}>All Items</p>
                         </>}
 
                     </div>

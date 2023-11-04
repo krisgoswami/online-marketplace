@@ -189,8 +189,8 @@ const CreateItem = () => {
                     <Switch
                         onChange={handleSwitchChange}
                         checked={inputs.published}
-                        onColor="#6fd26f"
-                        onHandleColor="#1ea624"
+                        onColor="#14B8A6"
+                        onHandleColor="#0F766E"
                         handleDiameter={30}
                         uncheckedIcon={false}
                         checkedIcon={false}
