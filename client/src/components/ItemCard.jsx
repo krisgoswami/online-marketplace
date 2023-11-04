@@ -29,16 +29,16 @@ const ItemCard = ({ id, item_name, description, brand, price, image }) => {
 
 export default ItemCard;
 
-export const HomeCard = ({ id, item_name, description, brand, price, image }) => {
+export const HomeCard = ({ id, item_name, brand, price, image }) => {
 
     const navigate = useNavigate();
 
     return (
-        <div className="bg-gray-700 w-80 p-4 shadow-md rounded-sm">
-            <img src={image} alt={''} className="w-full h-40 object-cover mb-4" />
-            <h3 className="text-xl text-white font-bold mb-2">{item_name}</h3>
-            <p className="text-white mb-2 font-semibold">{''}</p>
-            <p className="text-white mb-2 font-bold">₹ <span className='font-normal'>{price}/hr</span></p>
+        <div className="bg-white w-80 max-h-[600px] h-[500px] p-4 shadow-md rounded-sm">
+            <img src={image} alt={''} className="w-full h-84 object-cover mb-4" />
+            <h3 className="text-xl text-black font-medium mb-2 truncate max-h-24 overflow-hidden">{item_name}</h3>
+            <p className=" mb-2 font-semibold">{brand}</p>
+            <p className="mb-2 font-bold">₹ {price}</p>
             <button
                 onClick={() => {
                     navigate(`/item-details/${id}`);
@@ -46,7 +46,7 @@ export const HomeCard = ({ id, item_name, description, brand, price, image }) =>
                 className="bg-teal-500 hover:bg-teal-700 text-white px-4 py-2 rounded-full">
                 View
             </button>
-        </div>
+        </div >
     );
 };
 

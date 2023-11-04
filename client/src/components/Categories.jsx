@@ -23,7 +23,7 @@ const Categories = () => {
 
 
     return (
-        <div className="w-full p-5 bg-gray-200">
+        <div className="w-full p-5 pb-10 bg-gray-200">
             <h2 className="text-xl font-bold mb-4">Categories</h2>
             <div className='flex justify-center'>
                 {items?.map((item) =>
