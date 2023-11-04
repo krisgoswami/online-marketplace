@@ -27,4 +27,42 @@ const ItemCard = ({ id, item_name, description, brand, price, image }) => {
     );
 };
 
-export default ItemCard;  
+export default ItemCard;
+
+export const HomeCard = ({ id, item_name, description, brand, price, image }) => {
+
+    const navigate = useNavigate();
+
+    return (
+        <div className="bg-gray-700 w-80 p-4 shadow-md rounded-sm">
+            <img src={image} alt={''} className="w-full h-40 object-cover mb-4" />
+            <h3 className="text-xl text-white font-bold mb-2">{item_name}</h3>
+            <p className="text-white mb-2 font-semibold">{''}</p>
+            <p className="text-white mb-2 font-bold">₹ <span className='font-normal'>{price}/hr</span></p>
+            <button
+                onClick={() => {
+                    navigate(`/item-details/${id}`);
+                }}
+                className="bg-teal-500 hover:bg-teal-700 text-white px-4 py-2 rounded-full">
+                View
+            </button>
+        </div>
+    );
+};
+
+export const SectionCard = ({ id, category, image }) => {
+    return (
+        <div className="bg-white w-80 h-[450px] p-4 shadow-md rounded-sm flex flex-col items-center">
+            <img src={image} alt={''} className="w-full h-[300px] object-cover mb-4 rounded-md" />
+            <h3 className="text-xl text-black font-bold mb-2">{category}</h3>
+            <p className="text-white mb-2 font-semibold">{''}</p>
+            <button
+                // onClick={() => {
+                //     navigate(`/item-details/${id}`);
+                // }}
+                className="w-full bg-teal-500 hover:bg-teal-700 text-white px-4 py-2 rounded-md">
+                View
+            </button>
+        </div>
+    )
+}
