@@ -13,6 +13,8 @@ import Items from './pages/Items';
 import MyItems from './pages/MyItems';
 import ItemDetails from './pages/ItemDetails';
 import EditItem from './pages/EditItem';
+import Purchase from './pages/Purchase';
+import Purchases from './pages/Purchases';
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
             <Route path="/listed-items" element={<MyItems />} />
             <Route path="/item-details/:id" element={<ItemDetails />} />
             <Route path="/update-item/:id" element={<EditItem />} />
+            <Route path="/purchase/:id" element={<Purchase />} />
+            <Route path="/purchases" element={<Purchases />} />
           </Routes>
         </Router>
         <Footer />

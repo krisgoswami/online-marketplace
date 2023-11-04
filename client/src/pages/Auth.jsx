@@ -96,7 +96,7 @@ const Auth = () => {
     return (
         <div className="flex flex-col lg:flex-row lg:h-screen">
             {/* Left side with image and text */}
-            <div className="lg:flex-1 bg-teal-500 text-white p-12 flex items-center justify-center">
+            <div className="lg:flex-1 bg-teal-600 text-white p-12 flex items-center justify-center">
                 <div>
                     <h2 className="text-4xl font-bold mb-4 text-center lg:text-left">Welcome to Settyl Marketplace</h2>
                     <p className="text-lg text-center lg:text-left">Login to access your account.</p>

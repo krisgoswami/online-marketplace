@@ -27,7 +27,7 @@ const Navbar = () => {
 			toast("You've been logged out", {
 				icon: '⚠️',
 			});
-			navigate('/login');
+			navigate('/');
 		} catch (error) {
 			console.log(error);
 		}
@@ -70,6 +70,9 @@ const Navbar = () => {
 										</a>
 										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/listed-items') }}>
 											View listed items
+										</a>
+										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/listed-items') }}>
+											Your purchases
 										</a>
 										<a className="block py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={handleLogout}>
 											Logout

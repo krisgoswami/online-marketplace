@@ -12,11 +12,9 @@ const Items = () => {
     const getAllItems = async () => {
         try {
             const { data } = await axios.get(`${BASE_URL}/api/v1/common/get-items`);
-            // console.log("data is", data);
             if (data.success) {
                 setItems(data.items);
             }
-            // console.log(grounds);
         } catch (error) {
             console.log(error);
         }
