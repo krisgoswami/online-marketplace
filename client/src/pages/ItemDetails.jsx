@@ -67,30 +67,12 @@ const ItemDetails = () => {
         }
     }
 
-    //logic to book ground
-    const bookGround = async (e) => {
-        e.preventDefault();
-        if (selectedDate === "" || selectedTimeSlot === "") {
-            toast.error("Select date and time");
-            return;
-        }
-        try {
-            const { data } = await axios.post(`${BASE_URL}/api/v1/user/book-slot/${id}`, {
-                date: selectedDate,
-                timeSlot: selectedTimeSlot,
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                }
-            });
-            if (data.success) {
-                toast.success("Ground booked!");
-                navigate('/bookings');
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error("already booked");
+    //to check if user is logged in or not
+    const authCheck = () => {
+        if (isLogin) {
+            navigate(`/purchase/${id}`);
+        } else {
+            navigate('/login');
         }
     }
 
@@ -121,7 +103,7 @@ const ItemDetails = () => {
                             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
                             Delete 🗑️
                         </button></div> :
-                    <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
+                    <button onClick={authCheck} className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
                         Buy now
                     </button>
                 }
