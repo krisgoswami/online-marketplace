@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import CreateItem from './pages/CreateItem';
 import Items from './pages/Items';
 import MyItems from './pages/MyItems';
+import ItemDetails from './pages/ItemDetails';
+import EditItem from './pages/EditItem';
 
 function App() {
 
@@ -29,8 +31,8 @@ function App() {
             <Route path="/create-item" element={<CreateItem />} />
             <Route path="/items" element={<Items />} />
             <Route path="/listed-items" element={<MyItems />} />
-            {/* <Route path="/bookings" element={<Bookings />} /> */}
-            {/* <Route path="/grounds" element={<Grounds />} /> */}
+            <Route path="/item-details/:id" element={<ItemDetails />} />
+            <Route path="/update-item/:id" element={<EditItem />} />
           </Routes>
         </Router>
         <Footer />

@@ -30,7 +30,7 @@ const Items = () => {
     }, []);
 
     return (
-        <div className='flex flex-col h-screen p-4'>
+        <div className='flex flex-col h-full p-4'>
             {items?.map((item) =>
                 <div key={item?._id} className="mx-10 mt-4">
                     <ItemCard
