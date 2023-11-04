@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/signup', createUser);
 router.post('/login', userLogin);
 router.post('/create-item', authenticateJWT, createItem);
-router.post('/listed-items', authenticateJWT, listedItems);
+router.get('/listed-items', authenticateJWT, listedItems);
 router.put('/update-item/:id', authenticateJWT, updateItem);
 router.delete('/delete-item/:id', authenticateJWT, deleteItem);
 router.post('/purchase/:id', authenticateJWT, purchase);

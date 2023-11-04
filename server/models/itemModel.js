@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
 
 export const itemSchema = new mongoose.Schema({
-    brand: {
-        type: String,
-        // required: [true, "Brand is required"],
-    },
+    brand: String,
     item_name: {
         type: String,
         required: [true, "Name is required"],
