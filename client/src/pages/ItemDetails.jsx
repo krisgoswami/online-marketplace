@@ -19,7 +19,7 @@ const ItemDetails = () => {
     isLogin = isLogin || localStorage.getItem('userId');
 
 
-    //logic to get ground details
+    //logic to get item details
     const getItemDetails = async () => {
         try {
             const { data } = await axios.get(`${BASE_URL}/api/v1/common/get-item/${id}`, {
@@ -49,6 +49,23 @@ const ItemDetails = () => {
     useEffect(() => {
         getItemDetails();
     }, []);
+
+    //logic to delete
+    const handleDelete = async () => {
+        try {
+            const { data } = await axios.delete(`${BASE_URL}/api/v1/user/delete-item/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
+            if (data?.success) {
+                toast.success("Item deleted");
+                navigate('/listed-items');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     //logic to book ground
     const bookGround = async (e) => {
@@ -94,9 +111,16 @@ const ItemDetails = () => {
                 <div className="text-xl font-bold mb-4">₹ {inputs.price}</div>
                 <p className="text-lg max-w-2xl text-justify text-gray-700 mb-4">{inputs.description}</p>
                 {user === inputs.createdBy ?
-                    <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
+                    <div className='flex justify-between max-w-2xl'><button onClick={() => {
+                        navigate(`/update-item/${id}`);
+                    }}
+                        className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
                         Edit item
-                    </button> :
+                    </button>
+                        <button onClick={handleDelete}
+                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                            Delete item
+                        </button></div> :
                     <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-full">
                         Buy now
                     </button>
