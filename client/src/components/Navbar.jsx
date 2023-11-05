@@ -11,6 +11,7 @@ const Navbar = () => {
 	isLogin = isLogin || localStorage.getItem('userId');
 
 	let user = localStorage.getItem("username");
+	let userId = localStorage.getItem("userId");
 
 	const [searchQuery, setSearchQuery] = useState('');
 	const handleInputChange = (e) => {
@@ -93,6 +94,9 @@ const Navbar = () => {
 
 									<div
 										className="invisible absolute z-50 flex w-full flex-col rounded-md bg-teal-800  text-gray-800 shadow-xl group-hover:visible">
+										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate(`/profile/${userId}`) }}>
+											Profile
+										</a>
 										<a className=" block border-b border-white py-4 font-semibold text-white hover:text-teal-100 md:mx-2" onClick={() => { navigate('/create-item') }}>
 											Create an item to sell
 										</a>

@@ -17,6 +17,7 @@ import Purchase from './pages/Purchase';
 import Purchases from './pages/Purchases';
 import Search from './pages/Search';
 import AuctionPage from './pages/AuctionPage';
+import UserProfile from './pages/UserProfile';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/purchases" element={<Purchases />} />
             <Route path="/search" element={<Search />} />
             <Route path="/auction" element={<AuctionPage />} />
+            <Route path="/profile/:id" element={<UserProfile />} />
           </Routes>
         </Router>
         <Footer />
