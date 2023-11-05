@@ -19,6 +19,31 @@ export const getItems = async (req, res) => {
         });
     }
 }
+// *********search listed items*********
+
+export const searchItems = async (req, res) => {
+    const searchQuery = req.query.q;
+    try {
+        const items = await Item.find({
+            $or: [
+                { item_name: { $regex: new RegExp(searchQuery, 'i') } },
+                { brand: { $regex: new RegExp(searchQuery, 'i') } },
+            ]
+        });
+        res.status(200).send({
+            success: true,
+            itemsCount: items.length,
+            items,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({
+            message: 'No items found',
+            success: false,
+            error,
+        });
+    }
+}
 
 // *********get item by id*********
 
