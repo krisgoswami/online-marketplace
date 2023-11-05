@@ -28,6 +28,8 @@ export const searchItems = async (req, res) => {
             $or: [
                 { item_name: { $regex: new RegExp(searchQuery, 'i') } },
                 { brand: { $regex: new RegExp(searchQuery, 'i') } },
+                { category: { $regex: new RegExp(searchQuery, 'i') } },
+                { item_type: { $regex: new RegExp(searchQuery, 'i') } },
             ]
         });
         res.status(200).send({
