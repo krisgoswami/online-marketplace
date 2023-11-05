@@ -16,6 +16,7 @@ import EditItem from './pages/EditItem';
 import Purchase from './pages/Purchase';
 import Purchases from './pages/Purchases';
 import Search from './pages/Search';
+import AuctionPage from './pages/AuctionPage';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="/purchase/:id" element={<Purchase />} />
             <Route path="/purchases" element={<Purchases />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/auction" element={<AuctionPage />} />
           </Routes>
         </Router>
         <Footer />
