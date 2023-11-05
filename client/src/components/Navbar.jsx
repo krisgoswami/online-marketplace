@@ -12,6 +12,19 @@ const Navbar = () => {
 
 	let user = localStorage.getItem("username");
 
+	const [searchQuery, setSearchQuery] = useState('');
+	const handleInputChange = (e) => {
+		setSearchQuery(e.target.value);
+	};
+
+	const handleSearch = (e) => {
+		e.preventDefault();
+		if (searchQuery.trim() !== '') {
+			navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+		}
+	};
+
+
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
@@ -44,6 +57,21 @@ const Navbar = () => {
 						<p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/') }}>Home</p>
 						<p className="text-white font-medium cursor-pointer hidden lg:block" onClick={() => { navigate('/items') }}>All Items</p>
 					</div>
+					<form onSubmit={handleSearch} className="flex items-center">
+						<input
+							type="text"
+							value={searchQuery}
+							onChange={handleInputChange}
+							placeholder="Search items..."
+							className="border border-gray-300 w-96 p-2 mr-2 rounded-md"
+						/>
+						<button
+							type="submit"
+							className="bg-white font-bold py-2 px-4 rounded-md"
+						>
+							Search
+						</button>
+					</form>
 					<div className='flex items-center'>
 						{!isLogin &&
 							<button className="bg-white text-black font-bold px-4 py-2 rounded-md" onClick={handleLogin}>Login</button>
