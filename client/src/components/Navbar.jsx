@@ -47,7 +47,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 bg-teal-700 p-4">
+		<nav className="fixed z-10 top-0 left-0 right-0 bg-teal-700 p-4">
 			<div className="container mx-auto">
 				<div className="flex justify-between items-center">
 					<div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Settyl Market</div>
