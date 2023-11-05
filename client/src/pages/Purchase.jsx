@@ -61,7 +61,7 @@ const Purchase = () => {
         }
 
         // Validate CVV (should be a 3 or 4-digit number)
-        const cvvRegex = /^[0-9]{3  }$/;
+        const cvvRegex = /^[0-9]{3}$/;
         if (!cvvRegex.test(inputs.cvv)) {
             setErrors({ ...errors, cvv: 'Invalid CVV' });
             return;
