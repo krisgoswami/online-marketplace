@@ -77,7 +77,7 @@ const ItemDetails = () => {
     }
 
     return (
-        <div className="max-w-full h-screen ml-64 p-10 flex">
+        <div className="max-w-full h-screen ml-64 p-10 flex mt-20">
             {/* Product Image */}
             <div className="w-2/5 pr-8">
                 <img

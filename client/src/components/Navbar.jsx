@@ -47,7 +47,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<nav className="bg-teal-700 p-4">
+		<nav className="fixed top-0 left-0 right-0 bg-teal-700 p-4">
 			<div className="container mx-auto">
 				<div className="flex justify-between items-center">
 					<div className="text-white font-bold text-xl cursor-pointer" onClick={() => { navigate('/') }}>Settyl Market</div>
@@ -74,7 +74,7 @@ const Navbar = () => {
 					</form>
 					<div className='flex items-center'>
 						{!isLogin &&
-							<button className="bg-white text-black font-bold px-4 py-2 rounded-md" onClick={handleLogin}>Login</button>
+							<button className="bg-white text-black font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
 						}
 						{isLogin &&
 							<div className="mx-auto flex items-center justify-center bg-none rounded-md">

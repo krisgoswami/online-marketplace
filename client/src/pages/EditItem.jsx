@@ -118,7 +118,7 @@ const EditItem = () => {
     }
 
     return (
-        <div className="p-8">
+        <div className="p-8 mt-20">
             <h2 className="text-2xl font-bold mb-4">Edit item</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">

@@ -61,7 +61,7 @@ const Purchase = () => {
         }
 
         // Validate CVV (should be a 3 or 4-digit number)
-        const cvvRegex = /^[0-9]{3,4}$/;
+        const cvvRegex = /^[0-9]{3  }$/;
         if (!cvvRegex.test(inputs.cvv)) {
             setErrors({ ...errors, cvv: 'Invalid CVV' });
             return;
@@ -75,7 +75,7 @@ const Purchase = () => {
             });
             // console.log(data);
             if (data.success) {
-                toast.success("Course Purchased");
+                toast.success("Item Purchased");
                 navigate('/purchases');
             }
         }
@@ -84,7 +84,7 @@ const Purchase = () => {
         }
     }
     return (
-        <div className="container w-2/6 mx-auto p-8">
+        <div className="container w-2/6 mx-auto h-screen p-8 mt-20">
             <h2 className="text-2xl font-bold mb-8">Purchase Item</h2>
 
             <form onSubmit={handlePurchase}>

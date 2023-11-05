@@ -30,7 +30,7 @@ const Search = () => {
     }, [query]);
 
     return (
-        <div className="container mx-auto py-8 h-screen">
+        <div className="container mx-auto py-8 h-screen overflow-auto mt-20">
             <h2 className="text-3xl font-bold mb-10">Search Results for "{query}"</h2>
             {loading ? (
                 <div className="text-center">Loading...</div>

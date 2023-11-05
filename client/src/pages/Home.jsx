@@ -4,7 +4,7 @@ import Featured from '../components/Featured'
 
 const Home = () => {
     return (
-        <div className='p-10'>
+        <div className='p-10 mt-14'>
             <div className='my-5'>
                 <Categories />
             </div>

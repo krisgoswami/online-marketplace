@@ -29,8 +29,8 @@ const Purchases = () => {
         getPurchases();
     }, [])
     return (
-        <div className="w-full h-screen p-5 pb-10">
-            <h2 className="text-xl font-bold mb-4">Your purchases</h2>
+        <div className="w-full h-screen p-5 pb-10 mt-20">
+            <h2 className="text-xl font-bold mb-10">Your purchases</h2>
             <div className='flex justify-start'>
                 {purchasedItems?.map((item) =>
                     <div key={item?._id} className="mx-10 mt-4">
