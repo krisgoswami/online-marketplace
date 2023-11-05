@@ -4,7 +4,7 @@ import { Item } from '../models/itemModel.js';
 
 export const getItems = async (req, res) => {
     try {
-        const items = await Item.find({});
+        const items = await Item.find({ published: true });
         res.status(200).send({
             success: true,
             itemsCount: items.length,
