@@ -15,6 +15,7 @@ import ItemDetails from './pages/ItemDetails';
 import EditItem from './pages/EditItem';
 import Purchase from './pages/Purchase';
 import Purchases from './pages/Purchases';
+import Search from './pages/Search';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/update-item/:id" element={<EditItem />} />
             <Route path="/purchase/:id" element={<Purchase />} />
             <Route path="/purchases" element={<Purchases />} />
+            <Route path="/search" element={<Search />} />
           </Routes>
         </Router>
         <Footer />
