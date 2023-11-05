@@ -38,6 +38,7 @@ const ItemDetails = () => {
                     description: data?.item.description,
                     price: data?.item.price,
                     image: data?.item.image,
+                    published: data?.item.published,
                     createdBy: data?.item.createdBy,
                 })
                 console.log(inputs.brand);
@@ -92,6 +93,8 @@ const ItemDetails = () => {
                 <h1 className="text-xl text-gray-700 font-semibold mb-4">{inputs.brand}</h1>
                 <div className="text-xl font-bold mb-4">₹ {inputs.price}</div>
                 <p className="text-lg max-w-2xl text-justify text-gray-700 mb-4">{inputs.description}</p>
+                {inputs.published === false && <p className="text-sm max-w-2xl text-justify text-gray-700 mb-4">Not Published</p>}
+
                 {user === inputs.createdBy ?
                     <div className='flex justify-between max-w-2xl'><button onClick={() => {
                         navigate(`/update-item/${id}`);

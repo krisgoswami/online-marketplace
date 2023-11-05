@@ -34,6 +34,7 @@ const Items = () => {
                         description={item?.description}
                         price={item?.price}
                         image={item?.image}
+                        published={item?.published}
                     />
                 </div>
             )}

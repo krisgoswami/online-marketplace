@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ItemCard = ({ id, item_name, description, brand, price, image }) => {
+const ItemCard = ({ id, item_name, description, brand, price, image, published }) => {
 
     const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ const ItemCard = ({ id, item_name, description, brand, price, image }) => {
                 <p className="text-gray-700 w-3/4 font-medium mb-4">{item_name}</p>
                 <p className="text-gray-700 mb-2 w-3/4 text-justify">{description}</p>
                 <p className="text-black font-bold mb-4">{`₹${price}`}</p>
+                {published === false && <p className="text-sm text-gray-700 mb-4">Not Published</p>}
                 <button
                     onClick={() => {
                         navigate(`/item-details/${id}`);
