@@ -1,6 +1,7 @@
 ## Marketplace App
 
 Settyl Marketplace is an online marketplace where users can browse for items, create an item to sell and buy items from other users. ⚠***project not finished yet***⚠
+
 ![Screenshot (85)](https://github.com/krisgoswami/online-marketplace/assets/91143716/223402d0-561b-435a-b0f1-0496fc82f199)
 
 ## Technologies Used
