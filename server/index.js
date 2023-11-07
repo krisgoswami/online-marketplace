@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173", // Replace with your frontend's origin
+        origin: "http://localhost:5173", // frontend port
         methods: ["GET", "POST"]
     }
 });

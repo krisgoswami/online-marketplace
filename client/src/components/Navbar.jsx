@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../redux/store';
 import toast from 'react-hot-toast';
+import ShoppingCart from './ShoppingCart';
 
 const Navbar = () => {
 
@@ -47,6 +48,19 @@ const Navbar = () => {
 		}
 	}
 
+	const [cartItems, setCartItems] = useState([
+		{ id: 1, name: 'Item 1', price: 10, quantity: 2, image: 'item1.jpg' },
+		{ id: 2, name: 'Item 2', price: 15, quantity: 1, image: 'item2.jpg' },
+		// Add more items as needed
+	]);
+
+	const [showCart, setShowCart] = useState(false);
+
+	const toggleCart = () => {
+		setShowCart(!showCart);
+	}
+
+
 	return (
 		<nav className="fixed z-10 top-0 left-0 right-0 bg-teal-700 p-4">
 			<div className="container mx-auto">
@@ -73,6 +87,8 @@ const Navbar = () => {
 							Search
 						</button>
 					</form>
+					<button onClick={toggleCart}>Toggle Cart</button>
+					{showCart && <ShoppingCart items={cartItems} closePanel={toggleCart} />}
 					<div className='flex items-center'>
 						{!isLogin &&
 							<button className="bg-white text-black font-bold px-4 py-2 rounded-md ml-20" onClick={handleLogin}>Login</button>
